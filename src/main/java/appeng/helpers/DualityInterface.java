@@ -1534,7 +1534,8 @@ public class DualityInterface implements IGridTickable, IStorageMonitorable, IIn
             // Actually an error state...
             AELog.error("MEInterface was waiting for RESULT, but no result was set");
             unlockEvent = null;
-        } else if (unlockStack.getItem().equals(stack.getItem())) {
+        // } else if (unlockStack.getItem().equals(stack.getItem())) {
+        } else if (unlockStack.isSameType(stack)) {
             var remainingAmount = unlockStack.getStackSize() - stack.getStackSize();
             if (remainingAmount <= 0) {
                 unlockEvent = null;
